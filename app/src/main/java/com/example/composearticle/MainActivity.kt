@@ -12,7 +12,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -39,47 +38,31 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ArticleCard(
-    imagePainter: Painter,
-    title: String,
-    shortDescription: String,
-    longDescription: String,
-    modifier: Modifier = Modifier
-) {
-    Column(modifier = modifier) {
+fun ComposeArticle() {
+    Column {
         Image(
-            painter = imagePainter,
+            painter = painterResource(id = R.drawable.bg_compose_background),
             contentDescription = null
         )
         Text(
-            text = title,
+            text = stringResource(R.string.title_jetpack_compose_tutorial),
             fontSize = 24.sp,
             modifier = Modifier
                 .padding(16.dp)
-            )
+        )
         Text(
-            text = shortDescription,
+            text = stringResource(R.string.compose_short_desc),
             textAlign = TextAlign.Justify,
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp)
-            )
+        )
         Text(
-            text = longDescription,
+            text = stringResource(R.string.compose_long_desc),
             textAlign = TextAlign.Justify,
             modifier = Modifier
                 .padding(16.dp)
-            )
+        )
     }
-}
-
-@Composable
-fun ComposeArticle() {
-    ArticleCard(
-        imagePainter = painterResource(id = R.drawable.bg_compose_background),
-        title = stringResource(R.string.title_jetpack_compose_tutorial),
-        shortDescription = stringResource(R.string.compose_short_desc),
-        longDescription = stringResource(R.string.compose_long_desc)
-    )
 }
 
 @Preview(showBackground = true)
